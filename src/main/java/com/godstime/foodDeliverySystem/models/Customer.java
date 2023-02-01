@@ -25,11 +25,15 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_id")
     @SequenceGenerator(sequenceName = "seq_id", allocationSize = 1, name = "seq_id")
-    private Integer customerId;
+    private Integer id;
 
-    @NotBlank(message = "please enter your full name")
+    @NotBlank(message = "please enter your first name")
     @Column(name = "customer_name", length = 25)
-    private String name;
+    private String firstName;
+
+    @NotBlank(message = "please enter your surname")
+    @Column(name = "customer_name", length = 25)
+    private String lastName;
 
     private String address;
 
