@@ -24,6 +24,11 @@ public class Restaurant {
     @NotNull
     private String address;
 
+    @NotNull
+    private String cuisine;
+    @NotNull
+    private String phoneNo;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "restaurant")
     private List<MenuItem> menu;
 

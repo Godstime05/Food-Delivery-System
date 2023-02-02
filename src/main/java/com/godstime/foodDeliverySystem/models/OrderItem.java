@@ -26,6 +26,8 @@ public class OrderItem {
 
     private String description;
 
+    private String quantity;
+
     @NotNull
     private double price;
 

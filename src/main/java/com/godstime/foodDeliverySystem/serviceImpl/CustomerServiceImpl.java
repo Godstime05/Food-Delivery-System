@@ -1,5 +1,6 @@
 package com.godstime.foodDeliverySystem.serviceImpl;
 
+import com.godstime.foodDeliverySystem.dto.request.CustomerRequest;
 import com.godstime.foodDeliverySystem.models.Customer;
 import com.godstime.foodDeliverySystem.repositories.CustomerRepository;
 import com.godstime.foodDeliverySystem.services.CustomerService;
@@ -32,8 +33,13 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.save(customer);
     }
 
+//    @Override
+//    public Customer updateCustomer(Long id, CustomerRequest customerRequest, Customer customer) {
+//        return null;
+//    }
+
     @Override
-    public Customer updateCustomer(Customer customer) {
+    public Customer updateCustomer(Long id, CustomerRequest customerRequest, Customer customer) {
         if (customer == null) {
             throw new IllegalArgumentException("Customer cannot be null");
         }
@@ -78,7 +84,7 @@ public class CustomerServiceImpl implements CustomerService {
             throw new IllegalArgumentException("Email cannot be null or empty");
         }
         Optional<Customer> customer = Optional.ofNullable(customerRepository.findByEmail(email));
-        if (!customer.isPresent()) {
+        if (customer.isEmpty()) {
             throw new EntityNotFoundException("Customer with email " + email + " not found");
         }
         return customer.get();

@@ -35,6 +35,7 @@ public class Customer {
     @Column(name = "customer_name", length = 25)
     private String lastName;
 
+
     private String address;
 
     @Column(length = 25)
@@ -49,8 +50,8 @@ public class Customer {
 
     private String gender;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "customers")
-    @JsonIgnoreProperties("customers")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<Cart> listItem = new ArrayList<>();
+//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "customers")
+//    @JsonIgnoreProperties("customers")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private List<Cart> listItem = new ArrayList<>();
 }
