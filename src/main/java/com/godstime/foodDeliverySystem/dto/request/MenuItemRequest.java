@@ -11,6 +11,5 @@ public class MenuItemRequest {
     private String name;
     private Double price;
     private String description;
-    private String imageUrl;
 
 }
